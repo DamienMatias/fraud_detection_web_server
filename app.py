@@ -34,7 +34,7 @@ class Transactions(Resource):
         return transactions
 
 
-@api.route('/transactions/<int:userId>')
+@api.route('/user/<int:userId>/transactions/')
 class TransactionsByUser(Resource):
     @api.marshal_with(m_transaction)
     def get(self, userId):
@@ -48,7 +48,7 @@ class TransactionsByUser(Resource):
             return {'result': 'Transaction added'}, 201
 
 
-@api.route('/transactions/<int:userId>/new')
+@api.route('/user/<int:userId>/transactions/new')
 class NewTransactionByUser(Resource):
     @api.marshal_with(m_transaction)
     def get(self, userId):
